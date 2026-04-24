@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Pricing — ABTECH Computer Academy | Best Value Tech Training</title>
+  <meta name="description" content="Transparent pricing for world-class digital skills. Compare plans: Monthly, 2-Month, Pro & Master. Installments available. Start your tech journey today.">
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #0f172a;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, h4, .nav-logo, .hero-badge {
+      font-family: 'Syne', sans-serif;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar - matching courses page */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #eef2ff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo-ab { color: #f97316; }
+    .logo-tech { color: #0f172a; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e293b;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #f97316;
+    }
+    .nav-cta {
+      background: #f97316;
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+    .nav-cta:hover {
+      background: #ea580c;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 26px;
+      height: 2.5px;
+      background: #0f172a;
+      border-radius: 4px;
+    }
+    @media (max-width: 880px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: white;
+        width: 100%;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        transition: 0.3s ease;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Page Hero */
+    .page-hero {
+      background: linear-gradient(135deg, #fff6ed 0%, #ffffff 100%);
+      padding: 70px 24px 60px;
+      text-align: center;
+      border-bottom: 1px solid #ffe7d6;
+    }
+    .hero-badge {
+      background: #fef3c7;
+      color: #b45309;
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #0c1b33;
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      font-size: 1.2rem;
+      color: #334155;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* sections */
+    .section {
+      padding: 70px 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-tag {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #f97316;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+    }
+    .accent {
+      color: #f97316;
+    }
+
+    /* Pricing cards - 4 tier system aligned with course values */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin: 20px 0 48px;
+    }
+    .pricing-card {
+      background: #fff;
+      border-radius: 28px;
+      padding: 28px 20px 32px;
+      transition: all 0.3s ease;
+      border: 1px solid #eef2ff;
+      position: relative;
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+    }
+    .pricing-card.featured {
+      border: 2px solid #f97316;
+      background: linear-gradient(to bottom, #ffffff, #fffaf5);
+      transform: scale(1.02);
+    }
+    .pricing-card.featured:hover {
+      transform: scale(1.02) translateY(-6px);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f97316;
+      color: white;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 5px 20px;
+      border-radius: 60px;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+    }
+    .pricing-top {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .pricing-icon {
+      font-size: 2.5rem;
+      color: #f97316;
+      margin-bottom: 12px;
+    }
+    .pricing-duration {
+      font-size: 1rem;
+      font-weight: 600;
+      background: #f1f5f9;
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 40px;
+      color: #334155;
+    }
+    .pricing-label {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 12px 0 4px;
+      color: #0f172a;
+    }
+    .pricing-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #f97316;
+    }
+    .pricing-note {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+    .pricing-features {
+      list-style: none;
+      margin: 24px 0;
+      min-height: 280px;
+    }
+    .pricing-features li {
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: #334155;
+    }
+    .pricing-features li i.fa-check {
+      color: #10b981;
+      width: 18px;
+      font-size: 0.8rem;
+    }
+    .pricing-features li i.fa-star {
+      color: #f59e0b;
+      width: 18px;
+    }
+    .pricing-features li.muted i {
+      color: #cbd5e1;
+    }
+    .pricing-features li.muted {
+      color: #94a3b8;
+    }
+    .feature-highlight {
+      background: #fff7ed;
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-weight: 600;
+      color: #c2410c;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .btn-primary {
+      background: #f97316;
+      color: white;
+      box-shadow: 0 4px 10px rgba(249,115,22,0.25);
+    }
+    .btn-primary:hover {
+      background: #ea580c;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 1.5px solid #e2e8f0;
+      background: transparent;
+      color: #1e293b;
+    }
+    .btn-outline:hover {
+      border-color: #f97316;
+      background: #fff7ed;
+    }
+    .full-width {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Course matching info */
+    .course-match-banner {
+      background: #f0f9ff;
+      border-radius: 24px;
+      padding: 24px 32px;
+      margin: 32px 0 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-left: 5px solid #f97316;
+    }
+    .course-match-banner h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .course-match-banner p {
+      color: #475569;
+    }
+    .course-tag {
+      display: inline-flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .course-badge {
+      background: white;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+
+    .pricing-note-box {
+      background: #fefce8;
+      border-radius: 28px;
+      padding: 24px 32px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      border-left: 5px solid #f97316;
+      margin: 32px 0 20px;
+    }
+    .pricing-note-box i {
+      font-size: 2rem;
+      color: #f97316;
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #f97316;
+      color: #f97316;
+      padding: 8px 18px;
+      display: inline-block;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    .btn-ghost:hover {
+      background: #f97316;
+      color: white;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      border: 1px solid #eef2ff;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: white;
+      border: none;
+      padding: 18px 24px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: #0f172a;
+      transition: 0.2s;
+    }
+    .faq-question i {
+      color: #f97316;
+      transition: 0.2s;
+    }
+    .faq-answer {
+      padding: 0 24px 20px 24px;
+      display: none;
+      color: #475569;
+      line-height: 1.55;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    /* CTA band */
+    .cta-band {
+      background: linear-gradient(110deg, #0f172a, #1e293b);
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+    .cta-band h2 {
+      font-size: 2rem;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+    .btn-whatsapp:hover {
+      background: #128C7E;
+    }
+
+    /* footer */
+    .footer {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 56px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p {
+      margin: 16px 0;
+      max-width: 260px;
+    }
+    .social-links {
+      display: flex;
+      gap: 14px;
+    }
+    .social-links a {
+      background: #1e293b;
+      color: #f97316;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      background: #f97316;
+      color: white;
+    }
+    .footer-links h4, .footer-contact h4 {
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      transition: 0.2s;
+    }
+    .footer-links a:hover {
+      color: #f97316;
+    }
+    .footer-contact p {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #1e293b;
+      padding-top: 28px;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+      .page-hero h1 {
+        font-size: 2.2rem;
+      }
+      .pricing-features {
+        min-height: auto;
+      }
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+      z-index: 99;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal-up.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-ab">AB</span><span class="logo-tech">TECH</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="register.html" class="nav-cta">Register Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="hero-badge">Best Value Plans</div>
+    <h1>Flexible Pricing for Every Budget</h1>
+    <p>Choose a plan that fits your goals. Pay in installments. Start your tech journey today.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-tag">Choose Your Path</div>
+      <h2>Simple, <span class="accent">Transparent Pricing</span></h2>
+      <p>No hidden fees. All plans include certificate, online/physical options, and support.</p>
+    </div>
+
+    <div class="pricing-grid big reveal-up">
+      <!-- Monthly Starter -->
+      <div class="pricing-card">
+        <div class="pricing-top">
+          <div class="pricing-icon"><i class="fas fa-seedling"></i></div>
+          <div class="pricing-duration">1 Month</div>
+          <div class="pricing-label">Starter</div>
+          <div class="pricing-price">₦45,000</div>
+          <div class="pricing-note">Per Course</div>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> 1 Course of Choice</li>
+          <li><i class="fas fa-check"></i> 4 Hours / Week</li>
+          <li><i class="fas fa-check"></i> Certificate of Completion</li>
+          <li><i class="fas fa-check"></i> Online or Physical Classes</li>
+          <li><i class="fas fa-check"></i> WhatsApp Support Group</li>
+          <li class="muted"><i class="fas fa-times"></i> Project Review</li>
+          <li class="muted"><i class="fas fa-times"></i> Mentorship Session</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline full-width">Get Started</a>
+      </div>
+
+      <!-- 2-Month Popular (matches most courses) -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">⭐ Most Popular</div>
+        <div class="pricing-top">
+          <div class="pricing-icon"><i class="fas fa-fire"></i></div>
+          <div class="pricing-duration">2 Months</div>
+          <div class="pricing-label">Growth</div>
+          <div class="pricing-price">₦80,000</div>
+          <div class="pricing-note">Best for Graphic Design, Video Editing, Data Analytics</div>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> 1 Course of Choice</li>
+          <li><i class="fas fa-check"></i> 8 Hours / Week (Intensive)</li>
+          <li><i class="fas fa-star"></i> <span class="feature-highlight">Real-World Projects</span></li>
+          <li><i class="fas fa-check"></i> Certificate & Portfolio Review</li>
+          <li><i class="fas fa-check"></i> Online or Physical Classes</li>
+          <li><i class="fas fa-check"></i> Priority WhatsApp Support</li>
+          <li><i class="fas fa-check"></i> Freelancing Starter Guide</li>
+        </ul>
+        <a href="register.html" class="btn btn-primary full-width">Enroll Now →</a>
+      </div>
+
+      <!-- 3-Month Pro (Advanced & Multi-course) -->
+      <div class="pricing-card">
+        <div class="pricing-top">
+          <div class="pricing-icon"><i class="fas fa-rocket"></i></div>
+          <div class="pricing-duration">3 Months</div>
+          <div class="pricing-label">Pro</div>
+          <div class="pricing-price">₦130,000</div>
+          <div class="pricing-note">2 Courses Included (Save ₦30k+)</div>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> <strong>2 Courses of Choice</strong></li>
+          <li><i class="fas fa-check"></i> 12 Hours / Week</li>
+          <li><i class="fas fa-check"></i> Certificate for Both Courses</li>
+          <li><i class="fas fa-check"></i> 1-on-1 Mentorship (2 sessions)</li>
+          <li><i class="fas fa-check"></i> Portfolio Building & LinkedIn Optimization</li>
+          <li><i class="fas fa-check"></i> Job Placement Assistance</li>
+          <li><i class="fas fa-check"></i> Lifetime Access to Class Resources</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline full-width">Go Pro</a>
+      </div>
+
+      <!-- Master Plan (Full-stack, Cybersecurity, AI) -->
+      <div class="pricing-card">
+        <div class="pricing-top">
+          <div class="pricing-icon"><i class="fas fa-crown"></i></div>
+          <div class="pricing-duration">4–6 Months</div>
+          <div class="pricing-label">Master</div>
+          <div class="pricing-price">₦250k – ₦600k</div>
+          <div class="pricing-note">Full-Stack, Cybersecurity, AI/Cloud</div>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> In-Depth Specialization Track</li>
+          <li><i class="fas fa-check"></i> 15+ Hours / Week Intensive</li>
+          <li><i class="fas fa-star"></i> <span class="feature-highlight">Industry Certification</span></li>
+          <li><i class="fas fa-check"></i> 1-on-1 Career Mentorship</li>
+          <li><i class="fas fa-check"></i> Capstone Project & Internship Link</li>
+          <li><i class="fas fa-check"></i> Lifetime Alumni Network Access</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline full-width">Apply Now</a>
+      </div>
+    </div>
+
+    <!-- Course Matching Information -->
+    <div class="course-match-banner reveal-up">
+      <div>
+        <h4><i class="fas fa-graduation-cap"></i> Which plan fits your course?</h4>
+        <p>Compare with our course durations and choose smartly</p>
+      </div>
+      <div class="course-tag">
+        <span class="course-badge">📘 Basic Computer (8-12 weeks) → Growth Plan</span>
+        <span class="course-badge">🎨 Graphics (6-10 weeks) → Growth Plan</span>
+        <span class="course-badge">🎬 Video Editing (8-12 weeks) → Growth Plan</span>
+        <span class="course-badge">📊 Data Analytics (6-10 weeks) → Growth Plan</span>
+        <span class="course-badge">🤖 AI Automation (2-3 months) → Pro Plan</span>
+        <span class="course-badge">💻 Full-Stack (4-6 months) → Master Plan</span>
+      </div>
+    </div>
+
+    <div class="pricing-note-box reveal-up">
+      <i class="fas fa-hand-holding-usd"></i>
+      <div>
+        <h4>💰 Need Installment Payment?</h4>
+        <p>We understand your financial flow. Pay 70% upfront and spread the balance over the training period. Available for all plans above ₦50k.</p>
+        <a href="https://wa.me/2349138084584" target="_blank" class="btn-ghost"><i class="fab fa-whatsapp"></i> Request Installment Plan</a>
+      </div>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="section-header reveal-up" style="margin-top: 3rem;">
+      <div class="section-tag">FAQs</div>
+      <h2>Common <span class="accent">Questions</span></h2>
+    </div>
+    <div class="faq-list reveal-up">
+      <div class="faq-item">
+        <button class="faq-question">Which plan gives the best value for money? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>The <strong>2-Month Growth plan (₦80k)</strong> is our most popular — it covers 90% of our courses like Graphic Design, Video Editing, Digital Marketing, and Data Analytics. You get project review, portfolio help, and intensive practicals.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Can I pay in installments? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Yes! We offer flexible installments: 70% upfront, 30% within 4 weeks. Contact our admin on WhatsApp to set up a plan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Is the certificate recognized globally? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Absolutely. Our certificate is industry-recognized, verifiable, and accepted by employers and freelance platforms like Upwork and Fiverr.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What if I want to take expensive courses like Full-Stack or Cybersecurity? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>For advanced tracks (Full-Stack, Cloud, Cybersecurity), choose the <strong>Master Plan</strong>. We also offer customized payment plans. Contact us for a detailed quote.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Do you offer discounts for students or groups? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Yes! Groups of 3+ get 10% off. Schools and corporate organizations receive special pricing. Reach out to us directly.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Can I switch my plan after enrollment? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Yes, you can upgrade from Starter to Growth or Pro by paying the difference. Downgrade is not allowed after 2 weeks.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-content reveal-up">
+      <h2>Ready to Build Your Future?</h2>
+      <p>Limited seats available. Secure your spot today.</p>
+      <div class="cta-btns">
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="https://wa.me/2349138084584" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="color:white"><span class="logo-ab">AB</span><span class="logo-tech" style="color:#f97316">TECH</span></a>
+        <p>Empowering Africans with premium digital skills for global success.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="https://wa.me/2349138084584"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-links"><h4>Popular Courses</h4><ul><li><a href="courses.html">Graphic Design</a></li><li><a href="courses.html">Video Editing</a></li><li><a href="courses.html">Full-Stack Dev</a></li><li><a href="courses.html">Data Analytics</a></li><li><a href="courses.html">AI Automation</a></li></ul></div>
+      <div class="footer-contact"><h4>Contact Us</h4><p><i class="fas fa-phone"></i> +234 913 808 4584</p><p><i class="fab fa-whatsapp"></i> +234 913 808 4584</p><p><i class="fas fa-envelope"></i> abtechmultiservice@gmail.com</p><p><i class="fas fa-map-marker-alt"></i> Near Industrial Estate, Iperin, Agbara, Ogun State</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 ABTECH Computer Academy. All rights reserved. | Learn. Earn. Excel.</p></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2349138084584" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
+  // FAQ toggle
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const faqItem = this.closest('.faq-item');
+      faqItem.classList.toggle('active');
+    });
+  });
+
+  // Scroll reveal animation
+  const reveals = document.querySelectorAll('.reveal-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+  reveals.forEach(el => observer.observe(el));
+
+  // auto open first FAQ
+  const firstFaq = document.querySelector('.faq-item');
+  if (firstFaq) firstFaq.classList.add('active');
+</script>
+</body>
+</html>

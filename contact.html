@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Contact — ABTECH Computer Academy | Get in Touch</title>
+  <meta name="description" content="Contact ABTECH Computer Academy. Call, WhatsApp, email or visit us in Ogun State. We're here to answer your questions about our digital skills training courses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #0f172a;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, h4, .nav-logo, .hero-badge {
+      font-family: 'Syne', sans-serif;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar - matching other pages */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #eef2ff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo-ab { color: #f97316; }
+    .logo-tech { color: #0f172a; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e293b;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #f97316;
+    }
+    .nav-cta {
+      background: #f97316;
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+    .nav-cta:hover {
+      background: #ea580c;
+      transform: scale(0.97);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 26px;
+      height: 2.5px;
+      background: #0f172a;
+      border-radius: 4px;
+      transition: 0.2s;
+    }
+    @media (max-width: 880px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: white;
+        width: 100%;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        transition: 0.3s ease;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Page Hero - matching other pages */
+    .page-hero {
+      background: linear-gradient(135deg, #fff6ed 0%, #ffffff 100%);
+      padding: 80px 20px 70px;
+      text-align: center;
+      border-bottom: 1px solid #ffe7d6;
+    }
+    .hero-badge {
+      background: #fef3c7;
+      color: #b45309;
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #0c1b33;
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      font-size: 1.25rem;
+      color: #334155;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 0;
+    }
+    .section-tag {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #f97316;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .accent {
+      color: #f97316;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      margin-bottom: 64px;
+    }
+    @media (max-width: 880px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    /* Contact Info Side */
+    .contact-info h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .contact-info > p {
+      color: #475569;
+      margin-bottom: 32px;
+    }
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .contact-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .ci-icon {
+      width: 52px;
+      height: 52px;
+      background: #fff7ed;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f97316;
+      font-size: 1.3rem;
+    }
+    .ci-icon.whatsapp {
+      background: #e8f5e9;
+      color: #25D366;
+    }
+    .ci-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    .ci-text p, .ci-text a {
+      color: #475569;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .ci-text a:hover {
+      color: #f97316;
+    }
+    .contact-social {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .contact-social a {
+      width: 42px;
+      height: 42px;
+      background: #f1f5f9;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #f97316;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .contact-social a:hover {
+      background: #f97316;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Contact Form Side */
+    .contact-form-card {
+      background: white;
+      border-radius: 28px;
+      padding: 36px;
+      border: 1px solid #eef2ff;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.03);
+    }
+    .contact-form-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      background: #fefefe;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #f97316;
+      color: white;
+      box-shadow: 0 2px 6px rgba(249,115,22,0.2);
+    }
+    .btn-primary:hover {
+      background: #ea580c;
+      transform: translateY(-2px);
+    }
+    .full-width {
+      width: 100%;
+      text-align: center;
+    }
+    .success-message {
+      background: #dcfce7;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .success-message i {
+      font-size: 2rem;
+      color: #10b981;
+      margin-bottom: 8px;
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #f97316;
+      color: #f97316;
+      padding: 8px 18px;
+      display: inline-block;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .btn-ghost:hover {
+      background: #f97316;
+      color: white;
+    }
+
+    /* Map Section */
+    .map-section {
+      margin-top: 40px;
+    }
+    .map-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .map-placeholder {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #eef2ff;
+    }
+    .map-note {
+      background: #f8fafc;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: #475569;
+    }
+    .map-note i {
+      color: #f97316;
+      margin-right: 8px;
+    }
+
+    /* Footer - aligned with other pages */
+    .footer {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 56px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p {
+      margin: 16px 0;
+      color: #cbd5e1;
+      max-width: 260px;
+    }
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+    .social-links a {
+      background: #1e293b;
+      color: #f97316;
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      background: #f97316;
+      color: white;
+      transform: translateY(-2px);
+    }
+    .footer-links h4, .footer-contact h4 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: white;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      transition: 0.2s;
+    }
+    .footer-links a:hover {
+      color: #f97316;
+      padding-left: 4px;
+    }
+    .footer-contact p {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #cbd5e1;
+    }
+    .footer-contact p i {
+      width: 20px;
+      color: #f97316;
+    }
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #1e293b;
+      padding-top: 28px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+      transition: 0.2s;
+      z-index: 99;
+      text-decoration: none;
+      animation: pulse 2s infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background: #20b358;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    @media (max-width: 780px) {
+      .page-hero h1 {
+        font-size: 2.2rem;
+      }
+      .contact-form-card {
+        padding: 24px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+      }
+    }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal-up.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-ab">AB</span><span class="logo-tech">TECH</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="register.html" class="nav-cta">Register Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="hero-badge">Contact Us</div>
+    <h1>Get In Touch</h1>
+    <p>We're always happy to hear from you. Reach out anytime.</p>
+  </div>
+</section>
+
+<!-- CONTENT SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Info Side -->
+      <div class="contact-info reveal-up">
+        <div class="section-tag">Contact Information</div>
+        <h2>Let's <span class="accent">Talk</span></h2>
+        <p>Have questions about our courses, pricing or schedule? Reach us through any of these channels and we'll get back to you quickly.</p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+            <div class="ci-text">
+              <h4>Phone</h4>
+              <p>+234 913 808 4584</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+            <div class="ci-text">
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/2349138084584" target="_blank">+234 913 808 4584</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+            <div class="ci-text">
+              <h4>Email</h4>
+              <a href="mailto:abtechmultiservice@gmail.com">abtechmultiservice@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="ci-text">
+              <h4>Location</h4>
+              <p>Near Industrial Estate, Iperin, Agbara, Ogun State, Nigeria</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon"><i class="fas fa-clock"></i></div>
+            <div class="ci-text">
+              <h4>Hours</h4>
+              <p>Monday–Friday: 9am – 5pm<br/>Saturday: 10am – 2pm<br/>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Form Side -->
+      <div class="contact-form-wrap reveal-up">
+        <div class="contact-form-card">
+          <h3>Send Us a Message</h3>
+          <div id="contactSuccess" class="success-message" style="display:none;">
+            <i class="fas fa-check-circle"></i>
+            <h4>Message Sent!</h4>
+            <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+          </div>
+          <form id="contactForm" onsubmit="return false;">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="cName" placeholder="Your full name" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" id="cPhone" placeholder="+234 800 000 0000" required />
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="cEmail" placeholder="your@email.com" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="text" id="cSubject" placeholder="What is this about?" />
+            </div>
+            <div class="form-group">
+              <label>Message *</label>
+              <textarea id="cMessage" rows="5" placeholder="Tell us how we can help..." required></textarea>
+            </div>
+            <button type="button" class="btn btn-primary full-width" onclick="submitContact()">
+              Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section reveal-up">
+      <h3>Find Us in Ogun State</h3>
+      <div class="map-placeholder">
+        <div class="map-inner">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.45932769498!2d3.1438979!3d6.5480357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1699000000000"
+            width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" title="ABTECH Location Map">
+          </iframe>
+        </div>
+        <div class="map-note">
+          <span><i class="fas fa-info-circle"></i> Need exact directions to our training centre?</span>
+          <a href="https://wa.me/2349138084584" target="_blank" class="btn-ghost"><i class="fab fa-whatsapp"></i> Get Directions on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="color:white"><span class="logo-ab">AB</span><span class="logo-tech" style="color:#f97316">TECH</span></a>
+        <p>Empowering People to Learn, Earn and Stay Relevant Through Digital Skills.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/2349138084584"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="courses.html">Graphic Design</a></li>
+          <li><a href="courses.html">Video Editing</a></li>
+          <li><a href="courses.html">Full-Stack Dev</a></li>
+          <li><a href="courses.html">Data Analysis</a></li>
+          <li><a href="courses.html">AI & Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-phone-alt"></i> +234 913 808 4584</p>
+        <p><i class="fab fa-whatsapp"></i> +234 913 808 4584</p>
+        <p><i class="fas fa-envelope"></i> abtechmultiservice@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Near Industrial Estate, Iperin, Agbara, Ogun State</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 ABTECH Computer Academy — Shaping future leaders. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP (No Chatbot/AI Agent) -->
+<a href="https://wa.me/2349138084584" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  // Mobile hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Scroll reveal animation
+  const reveals = document.querySelectorAll('.reveal-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+  reveals.forEach(el => observer.observe(el));
+
+  // Contact form submission handler
+  function submitContact() {
+    const name = document.getElementById('cName').value.trim();
+    const phone = document.getElementById('cPhone').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const subject = document.getElementById('cSubject').value.trim();
+    const message = document.getElementById('cMessage').value.trim();
+
+    if (!name || !phone || !message) {
+      alert('Please fill in all required fields (Name, Phone, Message).');
+      return;
+    }
+
+    // Create WhatsApp message
+    let whatsappMsg = `Hello ABTECH!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Email:* ${encodeURIComponent(email || 'Not provided')}%0A*Subject:* ${encodeURIComponent(subject || 'General Inquiry')}%0A*Message:* ${encodeURIComponent(message)}%0A%0APlease get back to me. Thank you!`;
+
+    // Open WhatsApp
+    window.open(`https://wa.me/2349138084584?text=${whatsappMsg}`, '_blank');
+
+    // Show success message
+    const successDiv = document.getElementById('contactSuccess');
+    successDiv.style.display = 'block';
+    document.getElementById('contactForm').reset();
+
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      successDiv.style.display = 'none';
+    }, 5000);
+  }
+</script>
+</body>
+</html>
